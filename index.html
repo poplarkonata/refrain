@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refrain | ビジネスコンサルティング・デジタルコンテンツ事業</title>
+  <meta name="description" content="Refrain（リフレイン）の公式ウェブサイト。2016年創業。ビジネスコンサルティング、デジタルコンテンツ企画・制作、Webマーケティング支援を通じて、持続的な事業成長と価値創造を実現します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0c;
+      --bg-secondary: #111115;
+      --bg-card: #16161c;
+      --gold-primary: #c9a96e;
+      --gold-light: #e2c999;
+      --gold-dark: #8e703b;
+      --text-primary: #f2f2f4;
+      --text-secondary: #b0b0ba;
+      --text-muted: #767682;
+      --border-subtle: rgba(201, 169, 110, 0.22);
+      --border-faint: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      overflow-x: hidden;
+    }
+
+    /* Typography */
+    .font-serif-en {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.08em;
+    }
+
+    .font-serif-jp {
+      font-family: 'Noto Serif JP', serif;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 10, 12, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-faint);
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-size: 0.72rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.2em;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      transition: color 0.3s ease;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold-light);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 32px 100px;
+      background:
+        radial-gradient(circle at 75% 25%, rgba(201, 169, 110, 0.11) 0%, transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #070709 0%, #0d0d11 60%, #0a0a0c 100%);
+      border-bottom: 1px solid var(--border-faint);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .hero-container {
+      position: relative;
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 18px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(201, 169, 110, 0.06);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold-primary);
+      transform: rotate(45deg);
+    }
+
+    .hero-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-title-en span {
+      background: linear-gradient(135deg, #f5e6c8 0%, #c9a96e 50%, #9b7a40 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+    }
+
+    .hero-lead {
+      max-width: 680px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: 0.05em;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 38px;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+      color: #0a0a0c;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid var(--gold-light);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.12);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(201, 169, 110, 0.25);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 38px;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      background: rgba(201, 169, 110, 0.05);
+    }
+
+    /* Section Defaults */
+    section {
+      padding: 110px 32px;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 64px;
+    }
+
+    .section-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .section-eyebrow::after {
+      content: '';
+      height: 1px;
+      width: 48px;
+      background: var(--gold-primary);
+      opacity: 0.6;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
+    }
+
+    /* Philosophy / About Section */
+    .about-section {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-copy h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      letter-spacing: 0.06em;
+    }
+
+    .about-copy p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      font-weight: 300;
+      line-height: 2.1;
+      margin-bottom: 20px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 36px 28px;
+      position: relative;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: var(--gold-primary);
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+    }
+
+    /* Services Section */
+    .services-section {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .service-card {
+      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(17, 17, 21, 0.9) 100%);
+      border: 1px solid var(--border-faint);
+      padding: 44px 34px;
+      transition: all 0.35s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--gold-primary);
+      opacity: 0.85;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-title-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.28rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .service-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.88rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .service-desc {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.95;
+      margin-bottom: 28px;
+    }
+
+    .service-list {
+      list-style: none;
+      border-top: 1px solid var(--border-faint);
+      padding-top: 20px;
+    }
+
+    .service-list li {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background-color: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    /* Company Profile Section */
+    .profile-section {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .profile-table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 48px;
+    }
+
+    .profile-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .profile-table tr {
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .profile-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .profile-table th,
+    .profile-table td {
+      padding: 26px 16px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+
+    .profile-table th {
+      width: 28%;
+      color: var(--gold-light);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-table td {
+      color: var(--text-primary);
+      font-weight: 300;
+    }
+
+    .profile-sublist {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .profile-sublist li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+    }
+
+    .profile-sublist li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--gold-primary);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.09) 0%, transparent 60%),
+        var(--bg-primary);
+    }
+
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .contact-box h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .contact-box p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    .contact-info-list {
+      background: rgba(10, 10, 12, 0.7);
+      border: 1px solid var(--border-faint);
+      padding: 32px;
+    }
+
+    .contact-item {
+      margin-bottom: 22px;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-value a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-value a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #060608;
+      border-top: 1px solid var(--border-faint);
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.16em;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .footer-address {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .copyright {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .about-grid,
+      .services-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-table-wrap {
+        padding: 12px 24px;
+      }
+
+      .profile-table th,
+      .profile-table td {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+      }
+
+      .profile-table th {
+        padding-top: 20px;
+        padding-bottom: 4px;
+      }
+
+      .profile-table td {
+        padding-bottom: 20px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px 20px;
+      }
+
+      section {
+        padding: 72px 20px;
+      }
+
+      .hero {
+        padding: 140px 20px 80px;
+      }
+
+      .contact-box {
+        padding: 32px 24px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-main">Refrain</span>
+        <span class="logo-sub">BUSINESS &amp; DIGITAL CONSULTING</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">PHILOSOPHY</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#profile">OVERVIEW</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-badge">Established April 2016</div>
+      <h1 class="hero-title-en">
+        Strategic Insight,<br>
+        <span>Enduring Value.</span>
+      </h1>
+      <p class="hero-title-jp">本質的な戦略とコンテンツの力で、持続的な事業成長をデザインする。</p>
+      <p class="hero-lead">
+        Refrain（リフレイン）は、2016年の創業以来、ビジネスコンサルティングおよびデジタルコンテンツ事業を軸に、クライアントの事業価値最大化と収益基盤の構築を支援しています。
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">事業内容を見る</a>
+        <a href="#profile" class="btn-outline">事業所概要</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy / About Section -->
+  <section id="about" class="about-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Philosophy</div>
+        <h2 class="section-title">私たちが提供する価値</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <h3>一過性のブームではなく、<br>何度でも響き続ける確かな事業基盤を。</h3>
+          <p>
+            市場環境やデジタル技術が急速に変化する現代において、事業を長期的に成長させ続けるためには、再現性のあるビジネスモデルと、顧客の心を動かす質の高いコンテンツが不可欠です。
+          </p>
+          <p>
+            屋号である「Refrain」には、価値ある知恵やサービスが反復して広がり、クライアントと社会の双方に持続的な繁栄をもたらすという信念が込められています。2016年の開業以来、実務に根差したコンサルティングとコンテンツ企画・制作を通じて、多様なビジネス課題の解決に取り組んでいます。
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">2016</div>
+            <div class="stat-label">創業年（2016年4月開業）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3 Pillars</div>
+            <div class="stat-label">コンサル・コンテンツ・Web支援</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">BtoB / BtoC</div>
+            <div class="stat-label">幅広い事業領域への対応</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">Aichi, JP</div>
+            <div class="stat-label">愛知県刈谷市を拠点に全国対応</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Our Services</div>
+        <h2 class="section-title">事業内容</h2>
+      </div>
+      <div class="services-grid">
+        <!-- Service 01 -->
+        <div class="service-card">
+          <div>
+            <span class="service-num">01</span>
+            <h3 class="service-title-ja">ビジネスコンサルティング事業</h3>
+            <span class="service-title-en">Business Consulting</span>
+            <p class="service-desc">
+              個人事業主から中小企業まで、新規事業の立ち上げや既存事業の収益改善、業務プロセスの効率化・DX推進など、経営課題に直結する実践的なコンサルティングを提供します。
+            </p>
+          </div>
+          <ul class="service-list">
+            <li>事業戦略の立案およびビジネスモデル構築支援</li>
+            <li>収益改善・セールスプロセスの最適化アドバイザリー</li>
+            <li>デジタルツール・AI活用による業務効率化支援</li>
+          </ul>
+        </div>
+
+        <!-- Service 02 -->
+        <div class="service-card">
+          <div>
+            <span class="service-num">02</span>
+            <h3 class="service-title-ja">デジタルコンテンツ事業</h3>
+            <span class="service-title-en">Digital Content Creation</span>
+            <p class="service-desc">
+              専門知識やノウハウを体系化したデジタルコンテンツ・オンライン教材・Webメディア記事の企画・制作・販売およびプロデュースを一貫して手掛けます。
+            </p>
+          </div>
+          <ul class="service-list">
+            <li>デジタル教材・オンライン講座の企画開発および運営</li>
+            <li>オウンドメディア・Web記事・映像等のコンテンツ制作</li>
+            <li>知識資産のパッケージ化およびライツマネジメント</li>
+          </ul>
+        </div>
+
+        <!-- Service 03 -->
+        <div class="service-card">
+          <div>
+            <span class="service-num">03</span>
+            <h3 class="service-title-ja">Webマーケティング支援事業</h3>
+            <span class="service-title-en">Web Marketing &amp; Branding</span>
+            <p class="service-desc">
+              商品やサービスの価値を的確に届けるためのプロモーション設計、ランディングページ制作、SNS・CRMを活用した顧客獲得導線の構築をトータルで支援します。
+            </p>
+          </div>
+          <ul class="service-list">
+            <li>デジタルプロモーション・集客ファネルの企画設計</li>
+            <li>セールスコピーライティングおよびLP・Webサイト制作</li>
+            <li>SNS・メルマガ・LINE等を活用したCRM構築支援</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Profile Section -->
+  <section id="profile" class="profile-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Overview</div>
+        <h2 class="section-title">事業所概要</h2>
+      </div>
+      <div class="profile-table-wrap">
+        <table class="profile-table">
+          <tbody>
+            <tr>
+              <th>屋号 / 事業名</th>
+              <td>Refrain（リフレイン）</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>川合 翔太</td>
+            </tr>
+            <tr>
+              <th>開業年月</th>
+              <td>2016年4月</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>〒448-0807<br>愛知県刈谷市東刈谷町3-19-6 スカイビレッジ六番館305号</td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td>080-6957-9107</td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td>info@as7.jp</td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td>9:00 〜 18:00</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>
+                <ul class="profile-sublist">
+                  <li>ビジネスコンサルティング事業（経営・事業戦略立案、収益改善、業務効率化支援）</li>
+                  <li>デジタルコンテンツ事業（オンライン教材・Webコンテンツ等の企画、制作、配信、販売）</li>
+                  <li>Webマーケティング支援事業（プロモーション企画、Web制作、集客導線構築）</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Contact</div>
+        <h2 class="section-title">お問い合わせ</h2>
+      </div>
+      <div class="contact-box">
+        <div>
+          <h3>事業に関するご相談・お問い合わせ</h3>
+          <p>
+            ビジネスコンサルティングのご依頼、コンテンツ制作・マーケティング支援に関するご相談、その他各種お問い合わせにつきましては、お電話またはメールにて承っております。お気軽にお問い合わせください。
+          </p>
+        </div>
+        <div class="contact-info-list">
+          <div class="contact-item">
+            <span class="contact-label">Email Address</span>
+            <div class="contact-value"><a href="mailto:info@as7.jp">info@as7.jp</a></div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Telephone</span>
+            <div class="contact-value"><a href="tel:080-6957-9107">080-6957-9107</a></div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Business Hours</span>
+            <div class="contact-value" style="font-size: 0.95rem; color: var(--text-secondary);">9:00 〜 18:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">Refrain</div>
+    <p class="footer-address">〒448-0807 愛知県刈谷市東刈谷町3-19-6 スカイビレッジ六番館305号</p>
+    <p class="copyright">&copy; 2016 Refrain All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
