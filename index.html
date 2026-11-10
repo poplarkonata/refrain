@@ -4,22 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Refrain | ビジネスコンサルティング・デジタルコンテンツ事業</title>
-  <meta name="description" content="Refrain（リフレイン）の公式ウェブサイト。2016年創業。ビジネスコンサルティング、デジタルコンテンツ企画・制作、Webマーケティング支援を通じて、持続的な事業成長と価値創造を実現します。">
+  <meta name="description" content="Refrain（リフレイン）公式ウェブサイト。2016年創業。ビジネスコンサルティング、デジタルコンテンツ企画・制作、Webマーケティング支援を通じて、持続的な事業成長と価値創造を実現します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0a0a0c;
-      --bg-secondary: #111115;
-      --bg-card: #16161c;
+      --bg-primary: #070709;
+      --bg-secondary: #0e0e12;
+      --bg-card: #131319;
+      --bg-glass: rgba(19, 19, 25, 0.75);
       --gold-primary: #c9a96e;
-      --gold-light: #e2c999;
-      --gold-dark: #8e703b;
-      --text-primary: #f2f2f4;
-      --text-secondary: #b0b0ba;
-      --text-muted: #767682;
-      --border-subtle: rgba(201, 169, 110, 0.22);
+      --gold-light: #ebd5ab;
+      --gold-dark: #8c6c36;
+      --text-primary: #f5f5f7;
+      --text-secondary: #b5b5c0;
+      --text-muted: #72727e;
+      --border-gold: rgba(201, 169, 110, 0.28);
       --border-faint: rgba(255, 255, 255, 0.08);
     }
 
@@ -34,7 +35,7 @@
       background-color: var(--bg-primary);
       color: var(--text-primary);
       font-family: 'Noto Sans JP', sans-serif;
-      line-height: 1.8;
+      line-height: 1.85;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -43,14 +44,16 @@
       overflow-x: hidden;
     }
 
-    /* Typography */
-    .font-serif-en {
-      font-family: 'Cormorant Garamond', serif;
-      letter-spacing: 0.08em;
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .font-serif-jp {
-      font-family: 'Noto Serif JP', serif;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Header & Navigation */
@@ -60,17 +63,17 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(10, 10, 12, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 7, 9, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-faint);
       transition: all 0.3s ease;
     }
 
     .header-inner {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 20px 32px;
+      padding: 18px 36px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -79,36 +82,50 @@
     .logo {
       text-decoration: none;
       display: flex;
-      align-items: baseline;
-      gap: 12px;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
     }
 
     .logo-main {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 600;
       color: var(--text-primary);
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
+      line-height: 1;
       text-transform: uppercase;
     }
 
     .logo-sub {
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       color: var(--gold-primary);
-      letter-spacing: 0.2em;
+      letter-spacing: 0.24em;
+      margin-top: 4px;
     }
 
     nav ul {
       display: flex;
       list-style: none;
       gap: 36px;
+      align-items: center;
     }
 
     nav a {
       text-decoration: none;
       color: var(--text-secondary);
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
       transition: color 0.3s ease;
       position: relative;
       padding-bottom: 4px;
@@ -133,101 +150,131 @@
       width: 100%;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 140px 32px 100px;
-      background:
-        radial-gradient(circle at 75% 25%, rgba(201, 169, 110, 0.11) 0%, transparent 45%),
-        radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
-        linear-gradient(180deg, #070709 0%, #0d0d11 60%, #0a0a0c 100%);
-      border-bottom: 1px solid var(--border-faint);
-      overflow: hidden;
+    .nav-cta {
+      padding: 9px 22px;
+      border: 1px solid var(--border-gold);
+      background: rgba(201, 169, 110, 0.08);
+      color: var(--gold-light) !important;
     }
 
-    .hero::before {
-      content: '';
+    .nav-cta::after {
+      display: none;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-primary);
+      color: #070709 !important;
+    }
+
+    /* Hero Section with Background Visual & 2:3 Portrait Frame */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 36px 100px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .hero-bg {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 80px 80px;
+        linear-gradient(90deg, rgba(7, 7, 9, 0.95) 0%, rgba(7, 7, 9, 0.82) 55%, rgba(7, 7, 9, 0.68) 100%),
+        linear-gradient(180deg, rgba(7, 7, 9, 0.5) 0%, rgba(7, 7, 9, 0.96) 100%),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.03);
+      z-index: 0;
+    }
+
+    .hero-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(201, 169, 110, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(201, 169, 110, 0.04) 1px, transparent 1px);
+      background-size: 90px 90px;
+      z-index: 1;
       pointer-events: none;
     }
 
     .hero-container {
       position: relative;
-      max-width: 1080px;
+      z-index: 2;
+      max-width: 1240px;
       width: 100%;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 64px;
+      align-items: center;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 6px 18px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(201, 169, 110, 0.06);
+      padding: 7px 20px;
+      border: 1px solid var(--border-gold);
+      background: rgba(201, 169, 110, 0.08);
       color: var(--gold-light);
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
+      font-size: 0.76rem;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
-    .hero-badge::before {
-      content: '';
+    .hero-badge-dot {
       width: 6px;
       height: 6px;
       background: var(--gold-primary);
       transform: rotate(45deg);
+      box-shadow: 0 0 10px var(--gold-primary);
     }
 
     .hero-title-en {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-size: clamp(2.8rem, 5.4vw, 4.9rem);
       font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: 0.06em;
+      line-height: 1.08;
+      letter-spacing: 0.05em;
       color: var(--text-primary);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .hero-title-en span {
-      background: linear-gradient(135deg, #f5e6c8 0%, #c9a96e 50%, #9b7a40 100%);
+      background: linear-gradient(135deg, #fff3db 0%, #c9a96e 50%, #9b783e 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-title-jp {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+      font-size: clamp(1.2rem, 2.1vw, 1.65rem);
       font-weight: 500;
       color: var(--text-primary);
-      letter-spacing: 0.1em;
-      margin-bottom: 28px;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      border-left: 3px solid var(--gold-primary);
+      padding-left: 18px;
     }
 
     .hero-lead {
-      max-width: 680px;
       color: var(--text-secondary);
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 300;
-      line-height: 2;
-      letter-spacing: 0.05em;
-      margin-bottom: 48px;
+      line-height: 2.05;
+      letter-spacing: 0.04em;
+      margin-bottom: 42px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 18px;
     }
 
     .btn-primary {
@@ -235,86 +282,177 @@
       align-items: center;
       gap: 14px;
       padding: 16px 38px;
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-      color: #0a0a0c;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+      color: #070709;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.15em;
       text-decoration: none;
-      transition: all 0.3s ease;
-      border: 1px solid var(--gold-light);
+      transition: all 0.35s ease;
+      box-shadow: 0 10px 28px rgba(201, 169, 110, 0.22);
     }
 
     .btn-primary:hover {
-      filter: brightness(1.12);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(201, 169, 110, 0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(201, 169, 110, 0.38);
+      filter: brightness(1.08);
     }
 
     .btn-outline {
       display: inline-flex;
       align-items: center;
       gap: 14px;
-      padding: 16px 38px;
-      background: transparent;
+      padding: 16px 36px;
+      background: rgba(255, 255, 255, 0.03);
       color: var(--text-primary);
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
+      font-size: 0.88rem;
+      letter-spacing: 0.15em;
       text-decoration: none;
-      border: 1px solid var(--border-subtle);
-      transition: all 0.3s ease;
+      border: 1px solid var(--border-gold);
+      transition: all 0.35s ease;
     }
 
     .btn-outline:hover {
-      border-color: var(--gold-primary);
+      background: rgba(201, 169, 110, 0.12);
+      border-color: var(--gold-light);
       color: var(--gold-light);
-      background: rgba(201, 169, 110, 0.05);
+      transform: translateY(-3px);
     }
 
-    /* Section Defaults */
+    /* Hero Right Visual (2:3 Aspect Ratio Luxury Frame) */
+    .hero-visual-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-portrait-frame {
+      position: relative;
+      width: 100%;
+      max-width: 390px;
+      aspect-ratio: 2 / 3;
+      border: 1px solid var(--border-gold);
+      padding: 14px;
+      background: rgba(14, 14, 18, 0.65);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.75);
+    }
+
+    .hero-portrait-frame::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 70px;
+      height: 70px;
+      border-top: 2px solid var(--gold-primary);
+      border-right: 2px solid var(--gold-primary);
+      pointer-events: none;
+    }
+
+    .hero-portrait-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      width: 70px;
+      height: 70px;
+      border-bottom: 2px solid var(--gold-primary);
+      border-left: 2px solid var(--gold-primary);
+      pointer-events: none;
+    }
+
+    .hero-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.06) brightness(0.88);
+      display: block;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: 28px;
+      left: -28px;
+      background: rgba(10, 10, 14, 0.92);
+      border: 1px solid var(--border-gold);
+      padding: 18px 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-floating-card .fc-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .hero-floating-card .fc-text {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+    }
+
+    /* Section General */
     section {
-      padding: 110px 32px;
+      padding: 120px 36px;
       position: relative;
     }
 
     .section-inner {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .section-header {
-      margin-bottom: 64px;
+      margin-bottom: 68px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      border-bottom: 1px solid var(--border-faint);
+      padding-bottom: 28px;
     }
 
     .section-eyebrow {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: var(--gold-primary);
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
+      gap: 14px;
+      margin-bottom: 10px;
     }
 
-    .section-eyebrow::after {
+    .section-eyebrow::before {
       content: '';
+      width: 28px;
       height: 1px;
-      width: 48px;
       background: var(--gold-primary);
-      opacity: 0.6;
     }
 
     .section-title {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-size: clamp(1.8rem, 3vw, 2.45rem);
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--text-primary);
     }
 
-    /* Philosophy / About Section */
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      max-width: 420px;
+      line-height: 1.75;
+    }
+
+    /* Philosophy Section with Visual Collage */
     .about-section {
       background-color: var(--bg-secondary);
       border-bottom: 1px solid var(--border-faint);
@@ -322,68 +460,77 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 72px;
       align-items: center;
+    }
+
+    .about-visual-stack {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 88%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65);
+      display: block;
+    }
+
+    .about-img-sub {
+      width: 58%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border: 2px solid var(--gold-primary);
+      position: absolute;
+      bottom: -36px;
+      right: 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
     }
 
     .about-copy h3 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       font-weight: 500;
-      line-height: 1.7;
+      line-height: 1.65;
       color: var(--gold-light);
       margin-bottom: 24px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
     }
 
     .about-copy p {
       color: var(--text-secondary);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       font-weight: 300;
       line-height: 2.1;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
-    .stats-grid {
+    .stats-row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-faint);
     }
 
-    .stat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      padding: 36px 28px;
-      position: relative;
-    }
-
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 32px;
-      height: 2px;
-      background: var(--gold-primary);
-    }
-
-    .stat-number {
+    .stat-box .stat-val {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 600;
-      color: var(--gold-light);
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--gold-primary);
       line-height: 1.1;
-      margin-bottom: 8px;
     }
 
-    .stat-label {
-      font-size: 0.85rem;
+    .stat-box .stat-lbl {
+      font-size: 0.78rem;
       color: var(--text-secondary);
-      letter-spacing: 0.08em;
+      margin-top: 4px;
     }
 
-    /* Services Section */
+    /* Services Section with Photo Cards */
     .services-section {
       background-color: var(--bg-primary);
       border-bottom: 1px solid var(--border-faint);
@@ -392,70 +539,100 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: 34px;
     }
 
     .service-card {
-      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(17, 17, 21, 0.9) 100%);
+      background: var(--bg-card);
       border: 1px solid var(--border-faint);
-      padding: 44px 34px;
-      transition: all 0.35s ease;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.75);
+    }
+
+    .service-img-wrap {
       position: relative;
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+      filter: brightness(0.82) contrast(1.08);
+    }
+
+    .service-card:hover .service-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .service-num-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(7, 7, 9, 0.88);
+      border: 1px solid var(--border-gold);
+      padding: 4px 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+    }
+
+    .service-body {
+      padding: 36px 32px;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .service-card:hover {
-      border-color: var(--gold-primary);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    .service-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      color: var(--gold-primary);
-      opacity: 0.85;
-      margin-bottom: 20px;
-      display: block;
-    }
-
     .service-title-ja {
       font-family: 'Noto Serif JP', serif;
-      font-size: 1.28rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       letter-spacing: 0.05em;
     }
 
     .service-title-en {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--gold-primary);
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: block;
     }
 
     .service-desc {
       color: var(--text-secondary);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 300;
       line-height: 1.95;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .service-list {
       list-style: none;
       border-top: 1px solid var(--border-faint);
-      padding-top: 20px;
+      padding-top: 18px;
     }
 
     .service-list li {
-      font-size: 0.84rem;
+      font-size: 0.83rem;
       color: var(--text-secondary);
       padding: 6px 0;
       display: flex;
@@ -468,19 +645,89 @@
       width: 5px;
       height: 5px;
       background-color: var(--gold-primary);
+      transform: rotate(45deg);
       flex-shrink: 0;
     }
 
-    /* Company Profile Section */
-    .profile-section {
-      background-color: var(--bg-secondary);
+    /* Consulting Process Flow Section */
+    .process-section {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(201, 169, 110, 0.07) 0%, transparent 50%),
+        var(--bg-secondary);
       border-bottom: 1px solid var(--border-faint);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .process-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border-faint);
+      padding: 36px 26px;
+      position: relative;
+      transition: border-color 0.3s ease;
+    }
+
+    .process-step:hover {
+      border-color: var(--border-gold);
+    }
+
+    .process-step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .process-step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-primary);
+      border: 1px solid var(--border-gold);
+      padding: 4px 12px;
+    }
+
+    .process-icon {
+      width: 32px;
+      height: 32px;
+      color: var(--gold-light);
+    }
+
+    .process-step h4 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.12rem;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .process-step p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    /* Company Profile & Location Split */
+    .profile-section {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 40px;
+      align-items: start;
     }
 
     .profile-table-wrap {
       background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      padding: 16px 48px;
+      border: 1px solid var(--border-gold);
+      padding: 12px 42px;
     }
 
     .profile-table {
@@ -498,10 +745,10 @@
 
     .profile-table th,
     .profile-table td {
-      padding: 26px 16px;
+      padding: 24px 14px;
       text-align: left;
       vertical-align: top;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
     .profile-table th {
@@ -518,7 +765,7 @@
 
     .profile-sublist {
       list-style: none;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .profile-sublist li {
@@ -526,6 +773,7 @@
       padding-left: 16px;
       margin-bottom: 6px;
       color: var(--text-secondary);
+      font-size: 0.9rem;
     }
 
     .profile-sublist li::before {
@@ -535,17 +783,69 @@
       color: var(--gold-primary);
     }
 
+    .office-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-faint);
+      overflow: hidden;
+    }
+
+    .office-card-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      filter: brightness(0.85) contrast(1.08);
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .office-card-body {
+      padding: 30px 28px;
+    }
+
+    .office-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.15rem;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .office-card-text {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      text-decoration: none;
+      border: 1px solid var(--border-gold);
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .map-link:hover {
+      background: var(--gold-primary);
+      color: #070709;
+    }
+
     /* Contact Section */
     .contact-section {
       background:
-        radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.09) 0%, transparent 60%),
-        var(--bg-primary);
+        linear-gradient(180deg, rgba(7, 7, 9, 0.9) 0%, rgba(7, 7, 9, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
     }
 
     .contact-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      padding: 56px 48px;
+      background: rgba(19, 19, 25, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-gold);
+      padding: 60px 52px;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 48px;
@@ -554,9 +854,9 @@
 
     .contact-box h3 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       color: var(--text-primary);
     }
 
@@ -564,13 +864,13 @@
       color: var(--text-secondary);
       font-size: 0.94rem;
       font-weight: 300;
-      line-height: 1.9;
+      line-height: 1.95;
     }
 
     .contact-info-list {
-      background: rgba(10, 10, 12, 0.7);
+      background: rgba(7, 7, 9, 0.85);
       border: 1px solid var(--border-faint);
-      padding: 32px;
+      padding: 34px;
     }
 
     .contact-item {
@@ -582,16 +882,16 @@
     }
 
     .contact-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--gold-primary);
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       display: block;
       margin-bottom: 4px;
     }
 
     .contact-value {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--text-primary);
       font-weight: 500;
       letter-spacing: 0.04em;
@@ -609,18 +909,18 @@
 
     /* Footer */
     footer {
-      background-color: #060608;
+      background-color: #040406;
       border-top: 1px solid var(--border-faint);
-      padding: 48px 32px;
+      padding: 56px 36px;
       text-align: center;
     }
 
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      letter-spacing: 0.16em;
+      font-size: 1.8rem;
+      letter-spacing: 0.18em;
       color: var(--text-primary);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .footer-address {
@@ -630,65 +930,82 @@
     }
 
     .copyright {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
     }
 
     /* Responsive */
-    @media (max-width: 960px) {
+    @media (max-width: 1024px) {
+      .hero-container,
       .about-grid,
       .services-grid,
+      .profile-layout,
       .contact-box {
         grid-template-columns: 1fr;
       }
 
-      .profile-table-wrap {
-        padding: 12px 24px;
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .profile-table th,
-      .profile-table td {
-        display: block;
-        width: 100%;
-        padding: 12px 0;
+      .hero-visual-wrap {
+        margin-top: 24px;
       }
 
-      .profile-table th {
-        padding-top: 20px;
-        padding-bottom: 4px;
-      }
-
-      .profile-table td {
-        padding-bottom: 20px;
-      }
-
-      nav ul {
-        gap: 20px;
+      .about-visual-stack {
+        margin-bottom: 40px;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
       .header-inner {
         flex-direction: column;
         gap: 14px;
         padding: 16px 20px;
       }
 
+      nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
       section {
-        padding: 72px 20px;
+        padding: 80px 20px;
       }
 
       .hero {
-        padding: 140px 20px 80px;
+        padding: 150px 20px 80px;
+      }
+
+      .process-grid,
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-table-wrap {
+        padding: 12px 22px;
+      }
+
+      .profile-table th,
+      .profile-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      .profile-table th {
+        padding-top: 18px;
+        padding-bottom: 2px;
       }
 
       .contact-box {
-        padding: 32px 24px;
+        padding: 36px 24px;
       }
 
-      .stats-grid {
-        grid-template-columns: 1fr;
+      .hero-floating-card {
+        left: 10px;
       }
     }
   </style>
@@ -699,15 +1016,23 @@
   <header>
     <div class="header-inner">
       <a href="#" class="logo">
-        <span class="logo-main">Refrain</span>
-        <span class="logo-sub">BUSINESS &amp; DIGITAL CONSULTING</span>
+        <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="36" height="36" stroke="#C9A96E" stroke-width="1.5"/>
+          <path d="M8 20L20 8L32 20L20 32L8 20Z" stroke="#EBD5AB" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="3" fill="#C9A96E"/>
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-main">Refrain</span>
+          <span class="logo-sub">BUSINESS &amp; DIGITAL CONSULTING</span>
+        </div>
       </a>
       <nav>
         <ul>
           <li><a href="#about">PHILOSOPHY</a></li>
           <li><a href="#services">SERVICES</a></li>
+          <li><a href="#process">PROCESS</a></li>
           <li><a href="#profile">OVERVIEW</a></li>
-          <li><a href="#contact">CONTACT</a></li>
+          <li><a href="#contact" class="nav-cta">CONTACT</a></li>
         </ul>
       </nav>
     </div>
@@ -715,19 +1040,41 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-overlay"></div>
     <div class="hero-container">
-      <div class="hero-badge">Established April 2016</div>
-      <h1 class="hero-title-en">
-        Strategic Insight,<br>
-        <span>Enduring Value.</span>
-      </h1>
-      <p class="hero-title-jp">本質的な戦略とコンテンツの力で、持続的な事業成長をデザインする。</p>
-      <p class="hero-lead">
-        Refrain（リフレイン）は、2016年の創業以来、ビジネスコンサルティングおよびデジタルコンテンツ事業を軸に、クライアントの事業価値最大化と収益基盤の構築を支援しています。
-      </p>
-      <div class="hero-actions">
-        <a href="#services" class="btn-primary">事業内容を見る</a>
-        <a href="#profile" class="btn-outline">事業所概要</a>
+      <div class="hero-content reveal visible">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Established April 2016 — Aichi, Japan
+        </div>
+        <h1 class="hero-title-en">
+          Strategic Insight,<br>
+          <span>Enduring Value.</span>
+        </h1>
+        <p class="hero-title-jp">本質的な戦略とコンテンツの力で、持続的な事業成長をデザインする。</p>
+        <p class="hero-lead">
+          Refrain（リフレイン）は、2016年4月の創業以来、ビジネスコンサルティングおよびデジタルコンテンツ事業を軸に、クライアントの収益基盤構築と企業価値の最大化を一貫して支援しています。
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">事業内容を見る</a>
+          <a href="#profile" class="btn-outline">事業所概要・所在地</a>
+        </div>
+      </div>
+
+      <!-- 2:3 Aspect Ratio Luxury Visual Frame -->
+      <div class="hero-visual-wrap reveal visible">
+        <div class="hero-portrait-frame">
+          <img
+            class="hero-portrait-img"
+            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=85"
+            alt="Executive Business Strategy"
+          >
+          <div class="hero-floating-card">
+            <div class="fc-year">SINCE 2016</div>
+            <div class="fc-text">10年以上の確かな事業実績と伴走支援</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -735,36 +1082,52 @@
   <!-- Philosophy / About Section -->
   <section id="about" class="about-section">
     <div class="section-inner">
-      <div class="section-header">
-        <div class="section-eyebrow">Philosophy</div>
-        <h2 class="section-title">私たちが提供する価値</h2>
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Philosophy</div>
+          <h2 class="section-title">私たちが提供する価値</h2>
+        </div>
+        <p class="section-subtitle">
+          机上の空論ではなく、現場で確実に機能するビジネスモデルとコンテンツ資産を構築します。
+        </p>
       </div>
+
       <div class="about-grid">
-        <div class="about-copy">
+        <div class="about-visual-stack reveal">
+          <img
+            class="about-img-main"
+            src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=85"
+            alt="Modern Office Workspace"
+          >
+          <img
+            class="about-img-sub"
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=85"
+            alt="Data Analytics and Strategy"
+          >
+        </div>
+
+        <div class="about-copy reveal">
           <h3>一過性のブームではなく、<br>何度でも響き続ける確かな事業基盤を。</h3>
           <p>
-            市場環境やデジタル技術が急速に変化する現代において、事業を長期的に成長させ続けるためには、再現性のあるビジネスモデルと、顧客の心を動かす質の高いコンテンツが不可欠です。
+            市場環境やデジタル技術が急速に変化する現代において、事業を長期的に成長させ続けるためには、データと検証に裏打ちされた再現性のあるビジネスモデルと、顧客の心を動かす質の高いコンテンツが不可欠です。
           </p>
           <p>
             屋号である「Refrain」には、価値ある知恵やサービスが反復して広がり、クライアントと社会の双方に持続的な繁栄をもたらすという信念が込められています。2016年の開業以来、実務に根差したコンサルティングとコンテンツ企画・制作を通じて、多様なビジネス課題の解決に取り組んでいます。
           </p>
-        </div>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number">2016</div>
-            <div class="stat-label">創業年（2016年4月開業）</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">3 Pillars</div>
-            <div class="stat-label">コンサル・コンテンツ・Web支援</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">BtoB / BtoC</div>
-            <div class="stat-label">幅広い事業領域への対応</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">Aichi, JP</div>
-            <div class="stat-label">愛知県刈谷市を拠点に全国対応</div>
+
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-val">2016.04</div>
+              <div class="stat-lbl">創業・開業年月</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">3 Pillars</div>
+              <div class="stat-lbl">コンサル・コンテンツ・Web支援</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">National</div>
+              <div class="stat-lbl">愛知県刈谷市から全国対応</div>
+            </div>
           </div>
         </div>
       </div>
@@ -774,60 +1137,151 @@
   <!-- Services Section -->
   <section id="services" class="services-section">
     <div class="section-inner">
-      <div class="section-header">
-        <div class="section-eyebrow">Our Services</div>
-        <h2 class="section-title">事業内容</h2>
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Our Services</div>
+          <h2 class="section-title">事業内容</h2>
+        </div>
+        <p class="section-subtitle">
+          戦略立案からデジタルコンテンツ開発、プロモーション実装まで一気通貫で提供します。
+        </p>
       </div>
+
       <div class="services-grid">
         <!-- Service 01 -->
-        <div class="service-card">
-          <div>
-            <span class="service-num">01</span>
-            <h3 class="service-title-ja">ビジネスコンサルティング事業</h3>
-            <span class="service-title-en">Business Consulting</span>
-            <p class="service-desc">
-              個人事業主から中小企業まで、新規事業の立ち上げや既存事業の収益改善、業務プロセスの効率化・DX推進など、経営課題に直結する実践的なコンサルティングを提供します。
-            </p>
+        <div class="service-card reveal">
+          <div class="service-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+              alt="ビジネスコンサルティング事業"
+            >
+            <span class="service-num-badge">SERVICE 01</span>
           </div>
-          <ul class="service-list">
-            <li>事業戦略の立案およびビジネスモデル構築支援</li>
-            <li>収益改善・セールスプロセスの最適化アドバイザリー</li>
-            <li>デジタルツール・AI活用による業務効率化支援</li>
-          </ul>
+          <div class="service-body">
+            <div>
+              <h3 class="service-title-ja">ビジネスコンサルティング事業</h3>
+              <span class="service-title-en">Business Consulting</span>
+              <p class="service-desc">
+                個人事業主から中小企業まで、新規事業の立ち上げや既存事業の収益改善、業務プロセスの効率化・DX推進など、経営課題に直結する実践的なコンサルティングを提供します。
+              </p>
+            </div>
+            <ul class="service-list">
+              <li>事業戦略の立案およびビジネスモデル構築支援</li>
+              <li>収益改善・セールスプロセスの最適化アドバイザリー</li>
+              <li>デジタルツール・AI活用による業務効率化支援</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Service 02 -->
-        <div class="service-card">
-          <div>
-            <span class="service-num">02</span>
-            <h3 class="service-title-ja">デジタルコンテンツ事業</h3>
-            <span class="service-title-en">Digital Content Creation</span>
-            <p class="service-desc">
-              専門知識やノウハウを体系化したデジタルコンテンツ・オンライン教材・Webメディア記事の企画・制作・販売およびプロデュースを一貫して手掛けます。
-            </p>
+        <div class="service-card reveal">
+          <div class="service-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+              alt="デジタルコンテンツ事業"
+            >
+            <span class="service-num-badge">SERVICE 02</span>
           </div>
-          <ul class="service-list">
-            <li>デジタル教材・オンライン講座の企画開発および運営</li>
-            <li>オウンドメディア・Web記事・映像等のコンテンツ制作</li>
-            <li>知識資産のパッケージ化およびライツマネジメント</li>
-          </ul>
+          <div class="service-body">
+            <div>
+              <h3 class="service-title-ja">デジタルコンテンツ事業</h3>
+              <span class="service-title-en">Digital Content Creation</span>
+              <p class="service-desc">
+                専門知識やノウハウを体系化したデジタルコンテンツ・オンライン教材・Webメディア記事の企画・制作・配信・販売およびプロデュースを一貫して手掛けます。
+              </p>
+            </div>
+            <ul class="service-list">
+              <li>デジタル教材・オンライン講座の企画開発および運営</li>
+              <li>オウンドメディア・Web記事・映像等のコンテンツ制作</li>
+              <li>知識資産のパッケージ化およびライツマネジメント</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Service 03 -->
-        <div class="service-card">
-          <div>
-            <span class="service-num">03</span>
-            <h3 class="service-title-ja">Webマーケティング支援事業</h3>
-            <span class="service-title-en">Web Marketing &amp; Branding</span>
-            <p class="service-desc">
-              商品やサービスの価値を的確に届けるためのプロモーション設計、ランディングページ制作、SNS・CRMを活用した顧客獲得導線の構築をトータルで支援します。
-            </p>
+        <div class="service-card reveal">
+          <div class="service-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+              alt="Webマーケティング支援事業"
+            >
+            <span class="service-num-badge">SERVICE 03</span>
           </div>
-          <ul class="service-list">
-            <li>デジタルプロモーション・集客ファネルの企画設計</li>
-            <li>セールスコピーライティングおよびLP・Webサイト制作</li>
-            <li>SNS・メルマガ・LINE等を活用したCRM構築支援</li>
-          </ul>
+          <div class="service-body">
+            <div>
+              <h3 class="service-title-ja">Webマーケティング支援事業</h3>
+              <span class="service-title-en">Web Marketing &amp; Branding</span>
+              <p class="service-desc">
+                商品やサービスの価値を的確に届けるためのプロモーション設計、ランディングページ制作、SNS・CRMを活用した顧客獲得導線の構築をトータルで支援します。
+              </p>
+            </div>
+            <ul class="service-list">
+              <li>デジタルプロモーション・集客ファネルの企画設計</li>
+              <li>セールスコピーライティングおよびLP・Webサイト制作</li>
+              <li>SNS・メルマガ・LINE等を活用したCRM構築支援</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="process-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Workflow</div>
+          <h2 class="section-title">プロジェクト推進プロセス</h2>
+        </div>
+        <p class="section-subtitle">
+          徹底した現状分析から戦略設計、実装、改善まで4つのステップで着実に成果へと導きます。
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-step-header">
+            <span class="process-step-num">STEP 01</span>
+            <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </div>
+          <h4>現状分析・課題抽出</h4>
+          <p>市場環境・競合動向・現在の事業リソースを多角的に分析し、ボトルネックとなっている本質的な課題を特定します。</p>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="process-step-header">
+            <span class="process-step-num">STEP 02</span>
+            <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+          <h4>戦略設計・モデル構築</h4>
+          <p>ターゲット選定やポジショニング、収益化までのロードマップを策定し、持続的に機能する事業モデルを設計します。</p>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="process-step-header">
+            <span class="process-step-num">STEP 03</span>
+            <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h4>コンテンツ制作・実装</h4>
+          <p>高品質なデジタルコンテンツの制作、LP・Webサイトの構築、集客・販売導線のシステム実装をスピーディに行います。</p>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="process-step-header">
+            <span class="process-step-num">STEP 04</span>
+            <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <h4>データ検証・グロース</h4>
+          <p>リリース後の各種データを定量的に測定・検証し、継続的な改善（PDCA）によって事業のさらなる拡大を支援します。</p>
         </div>
       </div>
     </div>
@@ -836,53 +1290,88 @@
   <!-- Company Profile Section -->
   <section id="profile" class="profile-section">
     <div class="section-inner">
-      <div class="section-header">
-        <div class="section-eyebrow">Overview</div>
-        <h2 class="section-title">事業所概要</h2>
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Overview</div>
+          <h2 class="section-title">事業所概要</h2>
+        </div>
+        <p class="section-subtitle">
+          Refrainの基本情報および所在地のご案内です。
+        </p>
       </div>
-      <div class="profile-table-wrap">
-        <table class="profile-table">
-          <tbody>
-            <tr>
-              <th>屋号 / 事業名</th>
-              <td>Refrain（リフレイン）</td>
-            </tr>
-            <tr>
-              <th>代表者</th>
-              <td>川合 翔太</td>
-            </tr>
-            <tr>
-              <th>開業年月</th>
-              <td>2016年4月</td>
-            </tr>
-            <tr>
-              <th>所在地</th>
-              <td>〒448-0807<br>愛知県刈谷市東刈谷町3-19-6 スカイビレッジ六番館305号</td>
-            </tr>
-            <tr>
-              <th>電話番号</th>
-              <td>080-6957-9107</td>
-            </tr>
-            <tr>
-              <th>メールアドレス</th>
-              <td>info@as7.jp</td>
-            </tr>
-            <tr>
-              <th>営業時間</th>
-              <td>9:00 〜 18:00</td>
-            </tr>
-            <tr>
-              <th>事業内容</th>
-              <td>
-                <ul class="profile-sublist">
-                  <li>ビジネスコンサルティング事業（経営・事業戦略立案、収益改善、業務効率化支援）</li>
-                  <li>デジタルコンテンツ事業（オンライン教材・Webコンテンツ等の企画、制作、配信、販売）</li>
-                  <li>Webマーケティング支援事業（プロモーション企画、Web制作、集客導線構築）</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class="profile-layout">
+        <div class="profile-table-wrap reveal">
+          <table class="profile-table">
+            <tbody>
+              <tr>
+                <th>屋号 / 事業名</th>
+                <td>Refrain（リフレイン）</td>
+              </tr>
+              <tr>
+                <th>代表者</th>
+                <td>川合 翔太</td>
+              </tr>
+              <tr>
+                <th>開業年月</th>
+                <td>2016年4月</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>〒448-0807<br>愛知県刈谷市東刈谷町3-19-6 スカイビレッジ六番館305号</td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td>080-6957-9107</td>
+              </tr>
+              <tr>
+                <th>メールアドレス</th>
+                <td>info@as7.jp</td>
+              </tr>
+              <tr>
+                <th>営業時間</th>
+                <td>9:00 〜 18:00</td>
+              </tr>
+              <tr>
+                <th>事業内容</th>
+                <td>
+                  <ul class="profile-sublist">
+                    <li>ビジネスコンサルティング事業（経営・事業戦略立案、収益改善、業務効率化支援）</li>
+                    <li>デジタルコンテンツ事業（オンライン教材・Webコンテンツ等の企画、制作、配信、販売）</li>
+                    <li>Webマーケティング支援事業（プロモーション企画、Web制作、集客導線構築）</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="office-card reveal">
+          <img
+            class="office-card-img"
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+            alt="Office Location Visual"
+          >
+          <div class="office-card-body">
+            <h3 class="office-card-title">Location &amp; Access</h3>
+            <p class="office-card-text">
+              <strong>Refrain オフィス</strong><br>
+              〒448-0807<br>
+              愛知県刈谷市東刈谷町3-19-6<br>
+              スカイビレッジ六番館305号<br><br>
+              JR東海道本線「東刈谷駅」エリア。<br>
+              オンラインおよび対面でのご相談に対応しております。
+            </p>
+            <a
+              class="map-link"
+              href="https://www.google.com/maps/search/?api=1&query=愛知県刈谷市東刈谷町3-19-6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Googleマップで所在地を見る →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -890,15 +1379,12 @@
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="section-inner">
-      <div class="section-header">
-        <div class="section-eyebrow">Contact</div>
-        <h2 class="section-title">お問い合わせ</h2>
-      </div>
-      <div class="contact-box">
+      <div class="contact-box reveal">
         <div>
+          <div class="section-eyebrow">Contact Us</div>
           <h3>事業に関するご相談・お問い合わせ</h3>
           <p>
-            ビジネスコンサルティングのご依頼、コンテンツ制作・マーケティング支援に関するご相談、その他各種お問い合わせにつきましては、お電話またはメールにて承っております。お気軽にお問い合わせください。
+            ビジネスコンサルティングのご依頼、デジタルコンテンツ制作・Webマーケティング支援に関するご相談、その他各種お問い合わせにつきましては、お電話またはメールにて承っております。お気軽にお問い合わせください。
           </p>
         </div>
         <div class="contact-info-list">
@@ -926,5 +1412,19 @@
     <p class="copyright">&copy; 2016 Refrain All Rights Reserved.</p>
   </footer>
 
+  <!-- Scroll Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
